@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Wedding Invitation</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Serif+Display:ital@0;1&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Serif+Display:ital@0;1&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -18,10 +18,21 @@
     }
     html { scroll-behavior: smooth; }
     body { background: #f5f1f0; display: flex; justify-content: center; font-family: 'Noto Sans KR', sans-serif; min-height: 100vh; }
+
+    .thanks-names, .thanks-date {
+      position: relative; z-index: 2;
+      text-shadow:
+              0 0 12px rgba(0,0,0,0.7),
+              0 0 24px rgba(0,0,0,0.4),
+              1px 1px 0 rgba(0,0,0,0.5),
+              -1px -1px 0 rgba(0,0,0,0.5),
+              1px -1px 0 rgba(0,0,0,0.5),
+              -1px 1px 0 rgba(0,0,0,0.5);
+    }
     .phone { width: 100%; max-width: 430px; background: #fff; min-height: 100vh; overflow-x: hidden; }
 
     .sec { padding: 56px 36px; border-bottom: 1px solid var(--border); }
-    .sec-label { font-size: 9px; letter-spacing: 5px; color: var(--rose); margin-bottom: 28px; font-family: 'DM Serif Display', serif; text-transform: uppercase; }
+    .sec-label { font-size: 11px; letter-spacing: 5px; color: var(--rose); margin-bottom: 28px; font-family: 'DM Serif Display', serif; text-transform: uppercase; }
 
     /* ① HERO */
     .hero { position: relative; height: 100vh; min-height: 600px; max-height: 820px; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; overflow: hidden; background: #111; }
@@ -33,9 +44,9 @@
     @keyframes float-up { 0% { transform: translateY(0) scale(1); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 0.5; } 100% { transform: translateY(-110vh) scale(0.2); opacity: 0; } }
     .ring { position: absolute; border-radius: 50%; border: 1px solid rgba(201,122,122,0.25); animation: rpulse 3s ease-in-out infinite; }
     @keyframes rpulse { 0%,100% { transform: translate(-50%,-50%) scale(0.95); opacity: 0.3; } 50% { transform: translate(-50%,-50%) scale(1.05); opacity: 0.7; } }
-    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(17,17,17,0.05) 0%, rgba(17,17,17,0) 35%, rgba(17,17,17,0.75) 75%, rgba(17,17,17,0.97) 100%); }
+    .hero-overlay { position: absolute; inset: 0;/* background: linear-gradient(to bottom, rgba(17,17,17,0.05) 0%, rgba(17,17,17,0) 35%, rgba(17,17,17,0.75) 75%, rgba(17,17,17,0.97) 100%);*/ background-image: url("/images/cover-01.jpg");    background-size: cover;background-position: center;}
     .hero-content { position: relative; z-index: 2; text-align: center; padding: 0 36px 60px; width: 100%; }
-    .hero-thanks { font-size: 10px; letter-spacing: 7px; color: var(--rose-light); margin-bottom: 18px; font-family: 'DM Serif Display', serif; animation: fadedown 1.2s ease forwards; }
+    .hero-thanks { font-size: 12px; letter-spacing: 7px; color: #ff7575; margin-bottom: 18px; font-family: 'DM Serif Display', serif; animation: fadedown 1.2s ease forwards; }
     .hero-names { font-family: 'Cormorant Garamond', serif; font-size: 46px; font-style: italic; font-weight: 300; color: #fff; line-height: 1.1; margin-bottom: 6px; animation: fadeup 1.2s ease 0.3s both; }
     .hero-names-kr { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.55); letter-spacing: 5px; margin-bottom: 26px; animation: fadeup 1.2s ease 0.5s both; }
     .hero-date-badge { display: inline-block; border: 0.5px solid rgba(201,122,122,0.55); padding: 8px 22px; font-size: 11px; letter-spacing: 4px; color: rgba(255,255,255,0.75); animation: fadeup 1.2s ease 0.7s both; }
@@ -53,8 +64,8 @@
     .parents-grid { display: flex; }
     .parent-col { flex: 1; padding: 16px 0; }
     .parent-col + .parent-col { border-left: 0.5px solid var(--border); padding-left: 22px; }
-    .prole { font-size: 9px; letter-spacing: 3px; color: var(--rose); margin-bottom: 10px; }
-    .prelation { font-size: 12px; color: #aaa; font-weight: 300; line-height: 1.9; }
+    .prole { font-size: 10px; letter-spacing: 3px; color: var(--rose); margin-bottom: 10px; }
+    .prelation { font-size: 13px; color: #aaa; font-weight: 300; line-height: 1.9; }
     .pname { font-size: 18px; color: var(--dark); font-weight: 400; margin-top: 6px; }
 
     /* ④ 달력 */
@@ -259,10 +270,10 @@
     .toast.show { opacity: 1; }
 
     /* ⑩ 감사합니다 */
-    .thanks-sec { position: relative; min-height: 420px; background: #111; display: flex; flex-direction: column; align-items: center; justify-content: center; overflow: hidden; padding: 60px 36px; text-align: center; }
-    .thanks-text { position: relative; z-index: 2; font-size: 11px; letter-spacing: 8px; color: var(--rose); margin-bottom: 22px; }
+    .thanks-sec { position: relative; min-height: 420px; background: #111; display: flex; flex-direction: column; align-items: center; justify-content: end; overflow: hidden; padding: 60px 36px; text-align: center; }
+    .thanks-text { font-weight:bolder; position: relative; z-index: 2; font-size: 11px; letter-spacing: 8px; color: var(--rose); margin-bottom: 22px; }
     .thanks-names { position: relative; z-index: 2; font-family: 'Cormorant Garamond', serif; font-size: 42px; font-style: italic; font-weight: 300; color: #fff; margin-bottom: 10px; }
-    .thanks-date { position: relative; z-index: 2; font-size: 11px; letter-spacing: 4px; color: rgba(255,255,255,0.25); }
+    .thanks-date { position: relative; z-index: 2; font-size: 13px; letter-spacing: 4px; color: rgb(239 242 184); }
   </style>
 </head>
 <body>
@@ -276,15 +287,11 @@
       <path d="M15 80 Q50 56 85 80" stroke="#fff" stroke-width="1.2" fill="none"/>
     </svg>
   </div>
-  <div class="particles" id="particles"></div>
-  <div class="ring" style="width:180px;height:180px;top:42%;left:50%;animation-delay:0s;"></div>
-  <div class="ring" style="width:300px;height:300px;top:42%;left:50%;animation-delay:1s;"></div>
-  <div class="ring" style="width:440px;height:440px;top:42%;left:50%;animation-delay:2s;"></div>
+  <div class="particles" id="particles" style="z-index: 9999;"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-thanks">THANK YOU FOR COMING</div>
     <div class="hero-names">오순봉 &amp; 조유영</div>
-    <!-- <div class="hero-names-kr">○ ○ ○ · ○ ○ ○</div> -->
     <div class="hero-date-badge">2026 · 06 · 06 &nbsp;|&nbsp; AM 10:00</div>
   </div>
 </section>
@@ -327,7 +334,7 @@
   <div class="date-info">2026년 6월 6일 금요일 · 오전 10시</div>
   <div class="calendar">
     <div class="cal-header">
-      <div class="cal-month">June 2026</div>
+      <div class="cal-month">June</div>
       <div class="cal-year">2026</div>
     </div>
     <div class="cal-days-header">
@@ -373,9 +380,13 @@
 <section class="loc-sec">
   <div class="sec-label">오시는 길</div>
   <div class="venue-name">노팅힐웨딩컨벤션</div>
-  <div class="venue-detail">도공로 157 노팅힐웨딩컨벤션<br>○○○층 ○○홀</div>
+  <div class="venue-detail">
+    도공로 157 노팅힐웨딩컨벤션<br>
+    예식 · 3F 노팅힐웨딩홀 | 피로연 · 2F 컨벤션홀
+  </div>
   <div class="map-area">
-    <svg viewBox="0 0 360 180" width="360" height="180" xmlns="http://www.w3.org/2000/svg" style="opacity:0.45">
+    <div id ="map" style="width: 100%; height: 100%;"/>
+    <!--<svg viewBox="0 0 360 180" width="360" height="180" xmlns="http://www.w3.org/2000/svg" style="opacity:0.45">
       <line x1="0" y1="90" x2="360" y2="90" stroke="#c97a7a" stroke-width="2"/>
       <line x1="180" y1="0" x2="180" y2="180" stroke="#c97a7a" stroke-width="1"/>
       <line x1="0" y1="45" x2="360" y2="45" stroke="#e0b0b0" stroke-width="0.5" stroke-dasharray="6,6"/>
@@ -386,13 +397,13 @@
       <circle cx="180" cy="90" r="6" fill="#fff"/>
       <circle cx="180" cy="90" r="28" fill="none" stroke="#c97a7a" stroke-width="1" opacity="0.35"/>
       <circle cx="180" cy="90" r="44" fill="none" stroke="#c97a7a" stroke-width="0.5" opacity="0.18"/>
-    </svg>
+    </svg>-->
   </div>
-  <div class="map-btn-row">
+<!--  <div class="map-btn-row">
     <button class="map-btn">카카오맵</button>
     <button class="map-btn primary">네이버지도</button>
-  </div>
-  <div>
+  </div>-->
+ <!-- <div>
     <div class="transport-item">
       <div class="t-icon">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#c97a7a" stroke-width="1.5">
@@ -409,7 +420,7 @@
       </div>
       <div><div class="t-title">주차</div><div class="t-desc">건물 내 주차 가능 · ○시간 무료</div></div>
     </div>
-  </div>
+  </div>-->
 </section>
 
 <!-- ⑦ 포토부스 -->
@@ -523,9 +534,9 @@
               <div class="account-role">신부 아버지</div>
               <div class="account-name">조 문 형</div>
               <div class="account-bank">○○은행</div>
-              <div class="account-num">000-0000-0000-00</div>
+              <div class="account-num">111-1111-1111-11</div>
             </div>
-            <button class="copy-btn" onclick="doCopy('000-0000-0000-00')">복사</button>
+            <button class="copy-btn" onclick="doCopy('111-1111-1111-11')">복사</button>
           </div>
         </div>
         <!-- 신부 어머니 -->
@@ -535,9 +546,9 @@
               <div class="account-role">신부 어머니</div>
               <div class="account-name">양 선 형</div>
               <div class="account-bank">○○은행</div>
-              <div class="account-num">000-0000-0000-00</div>
+              <div class="account-num">000-2222-0000-00</div>
             </div>
-            <button class="copy-btn" onclick="doCopy('000-0000-0000-00')">복사</button>
+            <button class="copy-btn" onclick="doCopy('000-2222-0000-00')">복사</button>
           </div>
         </div>
         <!-- 신부 본인 -->
@@ -558,21 +569,85 @@
 
 <!-- ⑩ 감사합니다 -->
 <section class="thanks-sec">
-  <canvas id="tc" style="position:absolute;inset:0;width:100%;height:100%;"></canvas>
+  <canvas id="tc" style="position:absolute;inset:0;width:100%;height:100%;background-image: url('/images/last.jpg');background-size: 100% auto; background-position: center;"></canvas>
   <div class="thanks-text">THANK YOU</div>
   <div class="thanks-names">오순봉 &amp; 조유영</div>
   <div class="thanks-date">2026 · 06 · 06 &nbsp; AM 10:00</div>
 </section>
 
 <div class="toast" id="toast">계좌번호가 복사되었습니다</div>
-
+  <audio id="bgm" loop style="display: none;">
+    <source src="/audio/music.mp3" type="audio/mpeg">
+  </audio>
 </div>
-
+<base href="/">
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=765d53a5325210808073c3f591ce8dc9&autoload=false"></script>
 <script>
+
+  kakao.maps.load(function () {
+    var mapContainer = document.getElementById('map');
+    var map = new kakao.maps.Map(mapContainer, {
+      center: new kakao.maps.LatLng(33.4943621, 126.469389),
+      level: 3
+    });
+
+    var content = `
+  <div style="
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  ">
+    <div style="
+      width: 36px; height: 36px;
+      background: #fff;
+      border: 1.5px solid #c97a7a;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 14px rgba(201,122,122,0.35);
+    ">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="#c97a7a">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
+                 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09
+                 C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5
+                 c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+      </svg>
+    </div>
+
+    <div style="
+      width: 0; height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 7px solid #c97a7a;
+      margin-top: -1px;
+    "></div>
+`;
+
+    var overlay = new kakao.maps.CustomOverlay({
+      position: new kakao.maps.LatLng(33.4943621, 126.469389),
+      content: content,
+      yAnchor: 1.3   // 마커 위치 조정
+    });
+    overlay.setMap(map);
+  });
+</script>
+<script>
+
+  // 첫 터치 시 자동재생
+  var bgm = document.getElementById('bgm');
+  var bgmStarted = false;
+
+  document.addEventListener('touchstart', function() {
+    if (!bgmStarted) {
+      bgm.play();
+      bgmStarted = true;
+    }
+  }, { once: true });
+
   /* ── 파티클 ── */
   (function(){
     var c=document.getElementById('particles');
-    for(var i=0;i<18;i++){
+    for(var i=0;i<30;i++){
       var p=document.createElement('div'); p.className='particle';
       var s=Math.random()*4+2;
       p.style.cssText='width:'+s+'px;height:'+s+'px;left:'+Math.random()*100+'%;bottom:'+Math.random()*25+'%;animation-duration:'+(Math.random()*6+5)+'s;animation-delay:'+(Math.random()*7)+'s;';
@@ -596,9 +671,16 @@
   })();
 
   /* ── 갤러리 슬라이더 ── */
-  var TOTAL = 30;
+  var TOTAL = 29;
   var gIdx = 0;
-  var bgColors = ['#f0e0e0','#f5e8e8','#ede0e0','#f8efef','#f3e4e4','#f0e4e8','#f5e0e8','#ede4e0','#f8e8ef','#f0e8e4'];
+  //var bgColors = ['#f0e0e0','#f5e8e8','#ede0e0','#f8efef','#f3e4e4','#f0e4e8','#f5e0e8','#ede4e0','#f8e8ef','#f0e8e4'];
+  var bgImage = ['url("/images/forest-01.jpg")','url("/images/forest-02.jpg")', 'url("/images/forest-03.jpg")', 'url("/images/forest-04.jpg")'
+                , 'url("/images/forest-05.jpg")', 'url("/images/forest-06.jpg")', 'url("/images/forest-07.jpg")', 'url("/images/forest-08.jpg")'
+                , 'url("/images/forest-09.jpg")', 'url("/images/field-01.jpg")', 'url("/images/field-02.jpg")', 'url("/images/field-03.jpg")'
+                , 'url("/images/field-04.jpg")', 'url("/images/field-05.jpg")', 'url("/images/field-06.jpg")', 'url("/images/field-07.jpg")'
+                , 'url("/images/field-08.jpg")', 'url("/images/field-09.jpg")', 'url("/images/field-10.jpeg")', 'url("/images/ocean-01.jpg")', 'url("/images/ocean-02.jpg")'
+                , 'url("/images/ocean-03.jpg")', 'url("/images/ocean-04.jpg")', 'url("/images/ocean-05.jpg")', 'url("/images/ocean-06.jpg")'
+                , 'url("/images/ocean-07.jpg")', 'url("/images/ocean-08.jpg")', 'url("/images/ocean-09.jpg")', 'url("/images/ocean-10.jpg")'];
 
   (function buildGallery(){
     var track = document.getElementById('gTrack');
@@ -606,18 +688,23 @@
     document.getElementById('g-total').textContent = TOTAL;
 
     for(var i=0;i<TOTAL;i++){
-      // 슬라이드
+      // 슬라이드 — img 태그 방식으로 변경
       var slide = document.createElement('div');
       slide.className = 'gallery-slide';
-      slide.style.background = bgColors[i % bgColors.length];
-      slide.innerHTML = '<div class="g-slide-inner"><div class="g-slide-num">'+String(i+1).padStart(2,'0')+'</div><div class="g-slide-lbl">PHOTO</div></div>';
+      slide.style.background = '#1a1a1a'; // 여백 배경색
+
+      var img = document.createElement('img');
+      img.src = bgImage[i % bgImage.length].replace('url("','').replace('")',''); // url() 벗겨내기
+      img.style.cssText = 'width:100%;height:100%;object-fit:contain;object-position:center;';
+      slide.appendChild(img);
       track.appendChild(slide);
 
-      // 썸네일
+      // 썸네일은 cover 유지 (작아서 괜찮음)
       var th = document.createElement('div');
       th.className = 'g-thumb' + (i===0?' active':'');
-      th.style.background = bgColors[i % bgColors.length];
-      th.textContent = String(i+1).padStart(2,'0');
+      th.style.backgroundImage = bgImage[i % bgImage.length];
+      th.style.backgroundSize = 'cover';
+      th.style.backgroundPosition = 'center';
       th.dataset.i = i;
       th.addEventListener('click', function(){ gGoTo(parseInt(this.dataset.i)); });
       thumbs.appendChild(th);

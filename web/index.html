@@ -55,7 +55,7 @@
     .hero-overlay { position: absolute; inset: 0; background-image: url("/images/cover-01.jpg");    background-size: cover;background-position: center;}
     .hero-content { position: relative; z-index: 2; text-align: center; padding: 0 36px 60px; width: 100%; }
     .hero-thanks { font-size: 12px; letter-spacing: 7px; color: #ff7575; margin-bottom: 18px; font-family: 'DM Serif Display', serif; animation: fadedown 1.2s ease forwards; }
-    .hero-names { font-family: 'Cormorant Garamond', serif; font-size: 42px; font-style: italic; font-weight: 300; color: #fff; line-height: 1.1; margin-bottom: 6px; animation: fadeup 1.2s ease 0.3s both; }
+    .hero-names { font-family: 'Cormorant Garamond', serif; font-size: clamp(35px, 8vw, 46px); font-style: italic; font-weight: 300; color: #fff; line-height: 1.1; margin-bottom: 6px; animation: fadeup 1.2s ease 0.3s both; }
     .hero-names-kr { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.55); letter-spacing: 5px; margin-bottom: 26px; animation: fadeup 1.2s ease 0.5s both; }
     .hero-date-badge { display: inline-block; border: 0.5px solid rgba(201,122,122,0.55); padding: 8px 22px; font-size: 11px; letter-spacing: 4px; color: rgba(255,255,255,0.75); animation: fadeup 1.2s ease 0.7s both; }
     @keyframes fadeup { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
@@ -339,7 +339,10 @@
 <section class="date-sec">
   <div class="sec-label">일시</div>
   <div class="date-big">June 6</div>
-  <div class="date-info">2026년 6월 6일 토요일 · 오전 10시</div>
+  <div class="date-info" style="margin-bottom: 5px;">2026년 6월 6일 토요일 · 오전 10시</div>
+  <div style="  font-size: 12px;  color: #c97a7a;  font-weight: 300;  letter-spacing: 1px;  margin-top: 5px;  margin-bottom: 25px;">
+    피로연은 오후 5시까지 진행됩니다
+  </div>
   <div class="calendar">
     <div class="cal-header">
       <div class="cal-month">June</div>
